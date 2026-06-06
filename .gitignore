@@ -25,7 +25,7 @@ env/
 *.dual.epub
 output/
 tmp/
-media/
+# media/
 
 # OS/editor
 .DS_Store
