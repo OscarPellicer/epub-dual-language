@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epub-dual-language"
+version = "0.1.0"
+description = "Create dual-language EPUB books with OpenRouter translations."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "beautifulsoup4>=4.12.3",
+  "ebooklib>=0.18",
+  "lxml>=5.2.1",
+  "python-dotenv>=1.0.1",
+  "requests>=2.32.3",
+  "tqdm>=4.66.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+]
+
+[project.scripts]
+epub-dual-language = "epub_dual_language.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["epub_dual_language*"]
