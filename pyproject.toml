@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "epub-dual-language"
-version = "0.1.0"
+version = "0.1.1"
 description = "Create dual-language EPUB books with OpenRouter translations."
 readme = "README.md"
 requires-python = ">=3.10"

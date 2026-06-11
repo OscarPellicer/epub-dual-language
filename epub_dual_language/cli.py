@@ -13,6 +13,10 @@ from .openrouter import OpenRouterClient, OpenRouterConfig
 DEFAULT_MODEL = "google/gemini-3-flash-preview"
 
 
+def load_environment() -> None:
+    load_dotenv(Path.cwd() / ".env")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="epub-dual-language",
@@ -72,7 +76,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    load_dotenv()
+    load_environment()
     parser = build_parser()
     args = parser.parse_args(argv)
 

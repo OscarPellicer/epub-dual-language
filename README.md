@@ -27,21 +27,52 @@ Example of a generated dual-language EPUB (left) vs. original (right) opened in 
 
 ## Installation
 
-Clone the repository and install it into a Python environment:
+Install from PyPI:
+
+```bash
+pip install epub-dual-language
+```
+
+Python 3.10 or newer is required.
+
+For development, clone the repository and install it into a Python environment:
 
 ```bash
 pip install -e ".[dev]"
 ```
 
-Python 3.10 or newer is required.
+## OpenRouter API Key
 
-Create a `.env` file:
+The CLI reads `OPENROUTER_API_KEY` from the environment. You can pass it directly when
+you run the command.
+
+macOS/Linux:
+
+```bash
+OPENROUTER_API_KEY=your_openrouter_key epub-dual-language "path/to/book.epub" "English"
+```
+
+PowerShell:
+
+```powershell
+$env:OPENROUTER_API_KEY="your_openrouter_key"; epub-dual-language "path/to/book.epub" "English"
+```
+
+Windows cmd:
+
+```cmd
+set OPENROUTER_API_KEY=your_openrouter_key && epub-dual-language "path/to/book.epub" "English"
+```
+
+You can also create a `.env` file in the directory where you run the command:
 
 ```env
 OPENROUTER_API_KEY=your_openrouter_key
 ```
 
-`.env` is ignored by git.
+When you call `epub-dual-language`, it loads `.env` from the current working directory.
+An environment variable already set in your shell takes priority over the `.env` value.
+The repository's own `.env` is ignored by git.
 
 ## Basic Usage
 
@@ -76,7 +107,7 @@ epub-dual-language INPUT_EPUB TARGET_LANGUAGE \
   --chunking tokens \
   --max-tokens 6000 \
   --layout paragraph \
-  --translation-style italic \
+  --translation-style italic-muted \
   --translator-notes \
   --limit-units 40 \
   --output output/sample.dual.epub
